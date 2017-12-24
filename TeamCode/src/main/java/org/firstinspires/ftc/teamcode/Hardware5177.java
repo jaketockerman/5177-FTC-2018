@@ -75,7 +75,6 @@ public class Hardware5177
          jewelHitter = hwMap.servo.get("jewel");
         // Define All Sensors Here
          jewelSensor = hwMap.colorSensor.get("jewelCS");
-         jewelHitter.setPosition(.9);
          BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
          parameters.loggingTag = "IMU";
          parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;

@@ -62,11 +62,12 @@ public class Teleop5177 extends OpMode{
         telemetry.addData("Blue ", robot.jewelSensor.blue());
         telemetry.addData("Status", "Average Encoders: " + averageEncoders);
 
+        robot.jewelHitter.setPosition(.9);
         leftThrottle = -gamepad1.left_stick_y;
         rightThrottle = -gamepad1.right_stick_y;
-        lGrabberValue = -gamepad2.left_trigger+.5;
-        rGrabberValue = gamepad2.right_trigger +.5;
-        liftThrottle = -gamepad2.left_stick_y/2;
+        lGrabberValue = gamepad2.left_trigger+.5;
+        rGrabberValue = -gamepad2.right_trigger +.5;
+        liftThrottle = -gamepad2.left_stick_y;
     /*    if (gamepad1.a){
             robot.jewelHitter.setPosition(0.9);
             robot.jewelSensor.enableLed(false);
@@ -76,6 +77,8 @@ public class Teleop5177 extends OpMode{
         }*/
 
         robot.rightMotor.setPower(rightThrottle);
+
+
         robot.leftMotor.setPower(leftThrottle);
         robot.liftMotor.setPower(liftThrottle);
 
