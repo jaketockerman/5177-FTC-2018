@@ -1,16 +1,16 @@
 package org.firstinspires.ftc.teamcode;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-
-import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
@@ -44,9 +44,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="New Blue Auto", group="Autonomous")
-
-public class NewBlueAuto5177 extends LinearOpMode {
+@Autonomous(name="Red Right Auto", group="Autonomous")
+@Disabled
+public class RedRightAuto extends LinearOpMode {
 
     /* Declare OpMode members. */
     Hardware5177 robot   = new Hardware5177();   // Use a Pushbot's hardware
@@ -116,23 +116,26 @@ public class NewBlueAuto5177 extends LinearOpMode {
 
 
         if (robot.jewelSensor.red()>robot.jewelSensor.blue()){
-            encoderDrive(1,3,3,5);
-            sleep(1000);
-            robot.jewelHitter.setPosition(.9);
-            sleep(1000);
-        }
-        else if (robot.jewelSensor.blue()>robot.jewelSensor.red()){
             encoderDrive(1,-3,-3,5);
             sleep(1000);
             robot.jewelHitter.setPosition(.9);
             sleep(1000);
             encoderDrive(1,5,5,5);
+
+        }
+        else if (robot.jewelSensor.blue()>robot.jewelSensor.red()){
+            encoderDrive(1,3,3,5);
+            sleep(1000);
+            robot.jewelHitter.setPosition(.9);
+            sleep(1000);
         }
         RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
         telemetry.addData("Vuforia key", vuMark);
         if (vuMark == RelicRecoveryVuMark.LEFT){
-            encoderDrive(.7, 42, 42, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
-            encoderDrive(.7,23,-23,5);
+            encoderDrive(.7, 20, 20, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout            encoderDrive(.7,23,-23,5);
+            encoderDrive(.7,5,0,5);
+            encoderDrive(.7,23,20,5);
+            encoderDrive(.7, 20, 20, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout            encoderDrive(.7,23,-23,5);
             encoderDrive(.7, 15, 15, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
             robot.leftGrabber.setPosition(.5);
             robot.rightGrabber.setPosition(.5);

@@ -33,9 +33,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Old Red Auto", group="Auto")
+@Autonomous(name="JewelOnlyRedAuto", group="Auto")
 @Disabled
-public class RedAuto5177 extends LinearOpMode {
+public class JewelOnlyRedAuto extends LinearOpMode {
 
     /* Declare OpMode members. */
     Hardware5177 robot   = new Hardware5177();   // Use a Pushbot's hardware
@@ -78,25 +78,28 @@ public class RedAuto5177 extends LinearOpMode {
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(.5,-3,-3,5);
-        robot.jewelHitter.setPosition(.9);
-        sleep(1000);
-        if (robot.jewelSensor.red()>robot.jewelSensor.blue()){
-            encoderDrive(1,-6,6,5);
-        }
-        else if (robot.jewelSensor.blue()>robot.jewelSensor.red()){
-            encoderDrive(1,6,-6,5);
-
-        }
+        robot.leftGrabber.setPosition(1);
+        robot.rightGrabber.setPosition(0);
         sleep(1000);
         robot.jewelHitter.setPosition(.25);
         sleep(1000);
-        encoderDrive(.5,5,5,5);
-        encoderDrive(.5,25,-25,5);
-        encoderDrive(.7,  30,  30, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
 
 
-        sleep(1000);     // pause for servos to move
+
+        if (robot.jewelSensor.red()>robot.jewelSensor.blue()){
+            encoderDrive(1,-3,-3,5);
+            sleep(1000);
+            robot.jewelHitter.setPosition(.9);
+            sleep(1000);
+            encoderDrive(1,5,5,5);
+
+        }
+        else if (robot.jewelSensor.blue()>robot.jewelSensor.red()){
+            encoderDrive(1,3,3,5);
+            sleep(1000);
+            robot.jewelHitter.setPosition(.9);
+            sleep(1000);
+        }
 
         telemetry.addData("Path", "Complete");
         telemetry.update();

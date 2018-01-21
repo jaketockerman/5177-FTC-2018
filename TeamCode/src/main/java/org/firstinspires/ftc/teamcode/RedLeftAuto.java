@@ -44,9 +44,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="New Red Auto", group="Autonomous")
+@Autonomous(name="Red Left Auto", group="Autonomous")
 
-public class NewRedAuto5177 extends LinearOpMode {
+public class RedLeftAuto extends LinearOpMode {
 
     /* Declare OpMode members. */
     Hardware5177 robot   = new Hardware5177();   // Use a Pushbot's hardware
