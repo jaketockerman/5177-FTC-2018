@@ -45,7 +45,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
  */
 
 @Autonomous(name="Red Right Auto", group="Autonomous")
-@Disabled
 public class RedRightAuto extends LinearOpMode {
 
     /* Declare OpMode members. */
@@ -131,34 +130,38 @@ public class RedRightAuto extends LinearOpMode {
         }
         RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
         telemetry.addData("Vuforia key", vuMark);
-        if (vuMark == RelicRecoveryVuMark.LEFT){
-            encoderDrive(.7, 20, 20, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout            encoderDrive(.7,23,-23,5);
-            encoderDrive(.7,5,0,5);
-            encoderDrive(.7,23,20,5);
-            encoderDrive(.7, 20, 20, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout            encoderDrive(.7,23,-23,5);
-            encoderDrive(.7, 15, 15, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+        if (vuMark == RelicRecoveryVuMark.RIGHT){
+            encoderDrive(.7,22,22,5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            encoderDrive(.7,-23,23,5);
+            encoderDrive(.7,5,5,5);
+            encoderDrive(.7,23,-23,5);
+            encoderDrive(.7, 21, 21, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
             robot.leftGrabber.setPosition(.5);
             robot.rightGrabber.setPosition(.5);
             sleep(1000);
             encoderDrive(.7,-8,-8,5);
         }
         else if (vuMark == RelicRecoveryVuMark.CENTER){
-            encoderDrive(.7, 33, 33, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            encoderDrive(.7,22,22,5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            encoderDrive(.7,-23,23,5);
+            encoderDrive(.7,10,10,5);
             encoderDrive(.7,23,-23,5);
-            encoderDrive(.7, 15, 15, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            encoderDrive(.7, 21, 21, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
             robot.leftGrabber.setPosition(.5);
             robot.rightGrabber.setPosition(.5);
             sleep(1000);
             encoderDrive(.7,-8,-8,5);
         }
         else {
-            encoderDrive(.7, 29, 29, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            encoderDrive(.7,22,22,5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            encoderDrive(.7,-23,23,5);
+            encoderDrive(.7,17,17,5);
             encoderDrive(.7,23,-23,5);
-            encoderDrive(.7, 15, 15, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            encoderDrive(.7, 21, 21, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
             robot.leftGrabber.setPosition(.5);
             robot.rightGrabber.setPosition(.5);
             sleep(1000);
-            encoderDrive(.7,-7,-7,5);
+            encoderDrive(.7,-8,-8,5);
         }
 
 
