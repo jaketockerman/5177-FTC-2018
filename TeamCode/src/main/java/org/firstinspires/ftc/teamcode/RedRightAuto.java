@@ -44,7 +44,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Red Right Auto", group="Autonomous")
+@Autonomous(name="Red Do Not Use", group="Autonomous")
+@Disabled
 public class RedRightAuto extends LinearOpMode {
 
     /* Declare OpMode members. */
@@ -80,7 +81,7 @@ public class RedRightAuto extends LinearOpMode {
          * The init() method of the hardware class does all the work here
          */
         robot.init(hardwareMap);
-        robot.jewelHitter.setPosition(.9);
+        robot.jewelHitter.setPosition(-.9);
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Resetting Encoders");    //
         telemetry.update();
@@ -109,7 +110,7 @@ public class RedRightAuto extends LinearOpMode {
         robot.leftGrabber.setPosition(1);
         robot.rightGrabber.setPosition(0);
         sleep(1000);
-        robot.jewelHitter.setPosition(.25);
+        robot.jewelHitter.setPosition(-.25);
         sleep(1000);
 
 
@@ -117,7 +118,7 @@ public class RedRightAuto extends LinearOpMode {
         if (robot.jewelSensor.red()>robot.jewelSensor.blue()){
             encoderDrive(1,-3,-3,5);
             sleep(1000);
-            robot.jewelHitter.setPosition(.9);
+            robot.jewelHitter.setPosition(-.9);
             sleep(1000);
             encoderDrive(1,5,5,5);
 
@@ -125,7 +126,7 @@ public class RedRightAuto extends LinearOpMode {
         else if (robot.jewelSensor.blue()>robot.jewelSensor.red()){
             encoderDrive(1,3,3,5);
             sleep(1000);
-            robot.jewelHitter.setPosition(.9);
+            robot.jewelHitter.setPosition(-.9);
             sleep(1000);
         }
         RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);

@@ -44,7 +44,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Red Left Auto", group="Autonomous")
+@Autonomous(name="Red Auto", group="Autonomous")
 
 public class RedLeftAuto extends LinearOpMode {
 
@@ -82,6 +82,7 @@ public class RedLeftAuto extends LinearOpMode {
          */
         robot.init(hardwareMap);
         robot.jewelHitter.setPosition(.9);
+
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Resetting Encoders");    //
         telemetry.update();
@@ -97,6 +98,8 @@ public class RedLeftAuto extends LinearOpMode {
                 robot.leftMotor.getCurrentPosition(),
                 robot.rightMotor.getCurrentPosition());
 
+        robot.jewelHitter.setPosition(.9);
+        telemetry.addData("JEWEL POSITION", robot.jewelHitter.getPosition());
         telemetry.update();
 
 
